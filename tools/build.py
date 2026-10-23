@@ -9,6 +9,7 @@ to the site root, and writes <path>/index.html.
 
 Run from the repository root:  python3 tools/build.py
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -17,7 +18,13 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "src"
 HEADER_RE = re.compile(r"^\s*<!--(\{.*?\})-->\s*", re.S)
 
+ASSET_RE = re.compile(r'(assets/(?:css|js)/[\w-]+\.(?:css|js))"')
+
 NAV_KEYS = ["home", "about", "ministries", "resources", "connect", "give"]
+
+
+def asset_hash(rel):
+    return hashlib.sha1((ROOT / rel).read_bytes()).hexdigest()[:8]
 
 
 def build_page(src_file, layout):
@@ -49,6 +56,8 @@ def build_page(src_file, layout):
         current = ' aria-current="page"' if meta.get("nav") == key else ""
         html = html.replace("{{current_" + key + "}}", current)
     html = html.replace("{{root}}", root)
+    # Version stylesheet/script URLs by content so browsers never pair new HTML with stale CSS/JS.
+    html = ASSET_RE.sub(lambda m: f'{m.group(1)}?v={asset_hash(m.group(1))}"', html)
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
