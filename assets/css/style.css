@@ -168,7 +168,15 @@ address { font-style: normal; }
 .nav-list > li > a:hover, .nav-list > li > a[aria-current] { opacity: 1; background: rgba(255,255,255,.1); }
 .light-header .site-header:not(.is-scrolled) .nav-list > li > a:hover,
 .light-header .site-header:not(.is-scrolled) .nav-list > li > a[aria-current] { background: rgba(15,13,11,.07); }
-.submenu-toggle { background: none; border: 0; padding: 8px 6px 8px 0; margin-left: -8px; opacity: .7; }
+/* Ministries: the pill wraps both the link and its chevron. */
+.nav-list > li.has-menu { border-radius: 999px; transition: background-color .2s; }
+.nav-list > li.has-menu > a, .nav-list > li.has-menu > a:hover, .nav-list > li.has-menu > a[aria-current] { background: none; padding-right: 4px; }
+.nav-list > li.has-menu:hover, .nav-list > li.has-menu:focus-within, .nav-list > li.has-menu:has(> a[aria-current]) { background: rgba(255,255,255,.1); }
+.light-header .site-header:not(.is-scrolled) .nav-list > li.has-menu:hover,
+.light-header .site-header:not(.is-scrolled) .nav-list > li.has-menu:focus-within,
+.light-header .site-header:not(.is-scrolled) .nav-list > li.has-menu:has(> a[aria-current]) { background: rgba(15,13,11,.07); }
+.light-header .site-header:not(.is-scrolled) .nav-list > li.has-menu > a { background: none; }
+.submenu-toggle { background: none; border: 0; padding: 10px 14px 10px 2px; color: inherit; opacity: .7; }
 .submenu-toggle svg { width: 11px; height: 8px; transition: transform .3s var(--ease); }
 .has-menu:hover .submenu-toggle svg, .submenu-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
 .submenu {
