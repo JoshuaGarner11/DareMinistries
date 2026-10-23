@@ -24,6 +24,7 @@
     initLibraryFilter();
     initContactForm();
     initImageFallbacks();
+    initBrandSwitch();
     $$("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
   });
 
@@ -273,6 +274,24 @@
       var ok = $("[data-form-ok]", form);
       if (ok) ok.hidden = false;
     });
+  }
+
+  /* Preview toggle between the ministry's current logo and a refreshed brand. */
+  function initBrandSwitch() {
+    var buttons = $$("[data-brand-set]");
+    function sync() {
+      var current = doc.getAttribute("data-brand") || "classic";
+      buttons.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-brand-set") === current)); });
+    }
+    buttons.forEach(function (b) {
+      b.addEventListener("click", function () {
+        var brand = b.getAttribute("data-brand-set");
+        doc.setAttribute("data-brand", brand);
+        try { localStorage.setItem("dare-brand", brand); } catch (e) {}
+        sync();
+      });
+    });
+    sync();
   }
 
   /* Hide images that fail to load so the colored placeholder shows instead. */

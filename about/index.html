@@ -17,9 +17,17 @@
   <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://i0.wp.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    (function () {
+      var b = new URLSearchParams(location.search).get("brand");
+      var framed = window.self !== window.top;
+      if (framed) document.documentElement.classList.add("in-frame");
+      try { if (b && !framed) localStorage.setItem("dare-brand", b); else if (!b) b = localStorage.getItem("dare-brand"); } catch (e) {}
+      document.documentElement.setAttribute("data-brand", b === "fresh" ? "fresh" : "classic");
+    })();
+  </script>
   <script src="../assets/js/main.js" defer></script>
 </head>
 <body class="">
@@ -27,10 +35,7 @@
 
   <header class="site-header" data-header>
     <div class="container header-inner">
-      <a class="brand" href="../" aria-label="Dare Ministries home">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" fill="currentColor" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg>
-        <span class="brand-word">DARE<span>Ministries</span></span>
-      </a>
+      <a class="brand" href="../home/" aria-label="Dare Ministries home"><img class="logo-classic" src="../assets/img/logo-dare-light.png" alt="Dare Ministries" width="523" height="170"><span class="logo-fresh"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg><span class="brand-word">DARE<span>Ministries</span></span></span></a>
 
       <nav class="site-nav" aria-label="Main" data-nav>
         <ul class="nav-list">
@@ -64,7 +69,7 @@
   <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
     <nav aria-label="Mobile">
       <ul>
-        <li><a href="../">Home</a></li>
+        <li><a href="../home/">Home</a></li>
         <li><a href="../about/">About</a></li>
         <li><a href="../ministries/">Ministries</a>
           <ul>
@@ -84,10 +89,9 @@
 
   <main id="main">
 <section class="page-hero grain">
-      <div class="bg"><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2017/04/IMG_7561-e1491851974348.jpg?w=1600&ssl=1" alt=""></div>
+      <div class="bg"><img src="../assets/img/old-site/2016-04-Dare-39.jpg" alt=""></div>
       <div class="container">
-        <ol class="breadcrumb"><li><a href="../">Home</a></li><li>About</li></ol>
-        <p class="eyebrow">About Dare</p>
+        <ol class="breadcrumb"><li><a href="../home/">Home</a></li><li>About</li></ol>
         <h1 class="display">Prepared for <em>a lifetime</em> of ministry.</h1>
         <p class="lede">A Colorado Springs ministry equipping young believers to stand on Scripture, and uniting churches to do it together.</p>
       </div>
@@ -97,7 +101,6 @@
       <div class="container">
         <div class="split top">
           <div data-reveal>
-            <p class="eyebrow">Why we exist</p>
             <h2 class="h2" id="why-title">A thousand voices. <em>One truth.</em></h2>
           </div>
           <div class="prose" data-reveal style="--d:.1s">
@@ -114,12 +117,10 @@
         <h2 class="sr-only" id="mv-title">Mission and vision</h2>
         <div class="card-grid two">
           <div class="card" data-reveal>
-            <p class="eyebrow">Mission</p>
             <h3 class="h2" style="font-size:clamp(28px,3.4vw,44px)">Prepare young Saints for <em>a lifetime of ministry.</em></h3>
             <p class="mt-m">We equip students to know what they believe, why they believe it, and how to live it out at school, at work and at play.</p>
           </div>
           <div class="card" data-reveal style="--d:.1s">
-            <p class="eyebrow">Vision</p>
             <h3 class="h2" style="font-size:clamp(28px,3.4vw,44px)">Unify the body of Christ <em>around His work.</em></h3>
             <p class="mt-m">We bring like-minded believers and churches together to reach the next generation of Church leaders while upholding truth in an increasingly secular culture.</p>
           </div>
@@ -131,7 +132,6 @@
       <div class="container">
         <div class="section-head split">
           <div>
-            <p class="eyebrow">The journey</p>
             <h2 class="h2" id="journey-title">From one conference <em>to a movement.</em></h2>
           </div>
           <p class="lede">A few milestones from the first ten years.</p>
@@ -152,7 +152,6 @@
       <div class="container">
         <div class="section-head split">
           <div>
-            <p class="eyebrow">What we believe</p>
             <h2 class="h2" id="beliefs-title">Scripture is <em>our foundation.</em></h2>
           </div>
           <p class="lede">The convictions that every Dare conference, class and conversation is built on.</p>
@@ -186,14 +185,13 @@
       <div class="container">
         <div class="section-head split">
           <div>
-            <p class="eyebrow">Our team</p>
             <h2 class="h2" id="team-title">The people <em>behind the dare.</em></h2>
           </div>
           <p class="lede">A small staff and a big crew of volunteers from churches across Colorado Springs.</p>
         </div>
         <div class="team-lead">
           <article class="person" data-reveal>
-            <img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/elementor/thumbs/7D008337-1-scaled-e1650314692733-pnka848n35zwptlkiyp73fa40ed3vur29ut2zdaxi4.jpg?w=400&ssl=1" alt="Brandon Anderson" loading="lazy">
+            <img src="../assets/img/old-site/elementor-thumbs-7D008337-1-scaled-e1650314692733-pnka848n35zwptlkiyp73fa40ed3vur29ut2zdaxi4.jpg" alt="Brandon Anderson" loading="lazy">
             <div>
               <h3>Brandon Anderson</h3>
               <span class="role">Founder &amp; Executive Director</span>
@@ -201,7 +199,7 @@
             </div>
           </article>
           <article class="person" data-reveal style="--d:.1s">
-            <img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/elementor/thumbs/7D008301-1-scaled-e1650313949593-pnk9opuk19fv3js0t2te4timn3ze0qqhxu3bes2fx8.jpg?w=400&ssl=1" alt="Caitlin Lockard" loading="lazy">
+            <img src="../assets/img/old-site/elementor-thumbs-7D008301-1-scaled-e1650313949593-pnk9opuk19fv3js0t2te4timn3ze0qqhxu3bes2fx8.jpg" alt="Caitlin Lockard" loading="lazy">
             <div>
               <h3>Caitlin Lockard</h3>
               <span class="role">Operations Assistant</span>
@@ -228,7 +226,6 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-cta">
-        <p class="eyebrow">Stay in the loop</p>
         <h2 class="footer-cta-title">Occasional updates on <em>what God is doing.</em></h2>
         <p class="footer-cta-copy">Conference news, ministry stories and prayer needs. No inbox flood, we promise.</p>
         <a class="btn btn-light" href="https://dareministries.breezechms.com/form/e8b613" target="_blank" rel="noopener">Subscribe for updates</a>
@@ -236,10 +233,7 @@
 
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand brand-footer" href="../" aria-label="Dare Ministries home">
-            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" fill="currentColor" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg>
-            <span class="brand-word">DARE<span>Ministries</span></span>
-          </a>
+          <a class="brand brand-footer" href="../home/" aria-label="Dare Ministries home"><img class="logo-classic" src="../assets/img/logo-dare-light.png" alt="Dare Ministries" width="523" height="170"><span class="logo-fresh"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg><span class="brand-word">DARE<span>Ministries</span></span></span></a>
           <p>Preparing young Saints for a lifetime of ministry and uniting the body of Christ. Colorado Springs, since 2015.</p>
           <ul class="socials">
             <li><a href="https://www.instagram.com/dareministries/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
@@ -279,13 +273,16 @@
         </div>
       </div>
 
-      <div class="footer-wordmark" aria-hidden="true">DARE</div>
-
       <div class="footer-bottom">
         <p>&copy; <span data-year>2026</span> Dare Ministries. A 501(c)(3) nonprofit. Gifts are tax-deductible as allowed by law.</p>
         <p><a href="../privacy/">Privacy</a> · <a href="../give/">Give</a> · <a href="../connect/">Contact</a></p>
       </div>
     </div>
   </footer>
+  <div class="brand-switch" role="group" aria-label="Preview logo">
+    <span>Logo</span>
+    <button type="button" data-brand-set="classic">Current</button>
+    <button type="button" data-brand-set="fresh">Refreshed</button>
+  </div>
 </body>
 </html>

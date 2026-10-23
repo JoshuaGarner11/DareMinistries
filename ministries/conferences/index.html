@@ -17,9 +17,17 @@
   <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://i0.wp.com">
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>
+    (function () {
+      var b = new URLSearchParams(location.search).get("brand");
+      var framed = window.self !== window.top;
+      if (framed) document.documentElement.classList.add("in-frame");
+      try { if (b && !framed) localStorage.setItem("dare-brand", b); else if (!b) b = localStorage.getItem("dare-brand"); } catch (e) {}
+      document.documentElement.setAttribute("data-brand", b === "fresh" ? "fresh" : "classic");
+    })();
+  </script>
   <script src="../../assets/js/main.js" defer></script>
 </head>
 <body class="">
@@ -27,10 +35,7 @@
 
   <header class="site-header" data-header>
     <div class="container header-inner">
-      <a class="brand" href="../../" aria-label="Dare Ministries home">
-        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" fill="currentColor" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg>
-        <span class="brand-word">DARE<span>Ministries</span></span>
-      </a>
+      <a class="brand" href="../../home/" aria-label="Dare Ministries home"><img class="logo-classic" src="../../assets/img/logo-dare-light.png" alt="Dare Ministries" width="523" height="170"><span class="logo-fresh"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg><span class="brand-word">DARE<span>Ministries</span></span></span></a>
 
       <nav class="site-nav" aria-label="Main" data-nav>
         <ul class="nav-list">
@@ -64,7 +69,7 @@
   <div class="mobile-menu" id="mobile-menu" data-mobile-menu hidden>
     <nav aria-label="Mobile">
       <ul>
-        <li><a href="../../">Home</a></li>
+        <li><a href="../../home/">Home</a></li>
         <li><a href="../../about/">About</a></li>
         <li><a href="../../ministries/">Ministries</a>
           <ul>
@@ -84,10 +89,9 @@
 
   <main id="main">
 <section class="page-hero grain">
-      <div class="bg"><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2016/04/Dare-4.jpg?w=1600&ssl=1" alt=""></div>
+      <div class="bg"><img src="../../assets/img/old-site/2016-04-Dare-4.jpg" alt=""></div>
       <div class="container">
-        <ol class="breadcrumb"><li><a href="../../">Home</a></li><li><a href="../../ministries/">Ministries</a></li><li>Conferences</li></ol>
-        <p class="eyebrow">Conferences</p>
+        <ol class="breadcrumb"><li><a href="../../home/">Home</a></li><li><a href="../../ministries/">Ministries</a></li><li>Conferences</li></ol>
         <h1 class="display">Every year, <em>a new dare.</em></h1>
         <p class="lede">Our conferences call students to study the Scriptures and live out their faith at school, at work and at play. There's no minimum age for sharing the Gospel.</p>
         <div class="meta-strip">
@@ -102,7 +106,6 @@
       <div class="container">
         <div class="section-head split">
           <div>
-            <p class="eyebrow">The archive</p>
             <h2 class="h2" id="tl-title">The dare <em>archive.</em></h2>
           </div>
           <p class="lede">Every theme, speaker and church partner, from 100 students in 2015 onward.</p>
@@ -130,7 +133,7 @@
                   <a href="https://www.youtube.com/watch?v=vUd7afDAGsU" target="_blank" rel="noopener">▶ Share</a>
                 </div>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2016/04/Dare-39.jpg?w=600&ssl=1" alt="Students at the 2015 Dare Conference" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2016-04-Dare-39.jpg" alt="Students at the 2015 Dare Conference" loading="lazy"></figure>
             </div>
           </article>
 
@@ -146,7 +149,7 @@
                   <dt>Worship</dt><dd>Mario Powell (Emmanuel Missionary Baptist), Andrew Smith (Highlands Ranch Baptist)</dd>
                 </dl>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2016/04/Dare-4.jpg?w=600&ssl=1" alt="The 2016 Dare Conference" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2016-04-Dare-4.jpg" alt="The 2016 Dare Conference" loading="lazy"></figure>
             </div>
           </article>
 
@@ -163,7 +166,7 @@
                 </dl>
                 <div class="links"><a href="https://www.youtube.com/watch?v=8t6avtenPG0&list=PLIJ2Vh8gqDPhg2S4ml0occWGAnqTJjI5E" target="_blank" rel="noopener">▶ Watch the sessions</a></div>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2019/04/life-of-power-logo-e1554327066104.png?w=600&ssl=1" alt="Life of Power conference logo" loading="lazy" style="object-fit:contain;background:#fff;padding:16px"></figure>
+              <figure><img src="../../assets/img/old-site/2019-04-life-of-power-logo-e1554327066104.png" alt="Life of Power conference logo" loading="lazy" style="object-fit:contain;background:#fff;padding:16px"></figure>
             </div>
           </article>
 
@@ -181,7 +184,7 @@
                 </dl>
                 <div class="links"><a href="https://www.youtube.com/channel/UCKFDMGEEfibkeCgHDhESWvg" target="_blank" rel="noopener">▶ Watch on YouTube</a></div>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2019/04/dare-con-2018-abe-caroline.jpg?w=600&ssl=1" alt="Worship at Dare Conference 2018" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2019-04-dare-con-2018-abe-caroline.jpg" alt="Worship at Dare Conference 2018" loading="lazy"></figure>
             </div>
           </article>
 
@@ -198,7 +201,7 @@
                   <dt>Worship</dt><dd>Daniel Floring, Abe Ford</dd>
                 </dl>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2019/04/rechargeLogoV1-e1554327192150.png?w=600&ssl=1" alt="Recharge conference logo" loading="lazy" style="object-fit:contain;background:#fff;padding:16px"></figure>
+              <figure><img src="../../assets/img/old-site/2019-04-rechargeLogoV1-e1554327192150.png" alt="Recharge conference logo" loading="lazy" style="object-fit:contain;background:#fff;padding:16px"></figure>
             </div>
           </article>
 
@@ -216,7 +219,7 @@
                 </dl>
                 <div class="links"><a href="https://www.youtube.com/channel/UCKFDMGEEfibkeCgHDhESWvg" target="_blank" rel="noopener">▶ Teaching sessions</a></div>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2019/05/cropped-dare-conf-19-1.jpg?w=600&ssl=1" alt="2019 Dare Conference" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2019-05-cropped-dare-conf-19-1.jpg" alt="2019 Dare Conference" loading="lazy"></figure>
             </div>
           </article>
 
@@ -232,7 +235,7 @@
                   <dt>Speakers</dt><dd>Pastor Jeff Anderson, Brandon Anderson</dd>
                 </dl>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2020/05/dare2020poster_mark1-e1589558510191.png?w=600&ssl=1" alt="2020 Dare Conference poster" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2020-05-dare2020poster_mark1-e1589558510191.png" alt="2020 Dare Conference poster" loading="lazy"></figure>
             </div>
           </article>
 
@@ -247,7 +250,7 @@
                   <dt>Where</dt><dd>Vista Grande Baptist Church</dd>
                 </dl>
               </div>
-              <figure><img src="https://i0.wp.com/www.dareministries.com/wp-content/uploads/2021/03/cropped-banner-2021-dare-conference.png?w=600&ssl=1" alt="2021 Dare Conference banner" loading="lazy"></figure>
+              <figure><img src="../../assets/img/old-site/2021-03-cropped-banner-2021-dare-conference.png" alt="2021 Dare Conference banner" loading="lazy"></figure>
             </div>
           </article>
 
@@ -273,7 +276,6 @@
       <div class="container">
         <div class="split">
           <div data-reveal>
-            <p class="eyebrow">Watch</p>
             <h2 class="h2" id="watch-title">Where it <em>all began.</em></h2>
             <p class="lede mt-m">"Shine," the very first session of the very first Dare Conference in 2015, taught by Eric Coleman of Grace Bible Church.</p>
           </div>
@@ -293,7 +295,6 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-cta">
-        <p class="eyebrow">Stay in the loop</p>
         <h2 class="footer-cta-title">Occasional updates on <em>what God is doing.</em></h2>
         <p class="footer-cta-copy">Conference news, ministry stories and prayer needs. No inbox flood, we promise.</p>
         <a class="btn btn-light" href="https://dareministries.breezechms.com/form/e8b613" target="_blank" rel="noopener">Subscribe for updates</a>
@@ -301,10 +302,7 @@
 
       <div class="footer-grid">
         <div class="footer-about">
-          <a class="brand brand-footer" href="../../" aria-label="Dare Ministries home">
-            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" fill="currentColor" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg>
-            <span class="brand-word">DARE<span>Ministries</span></span>
-          </a>
+          <a class="brand brand-footer" href="../../home/" aria-label="Dare Ministries home"><img class="logo-classic" src="../../assets/img/logo-dare-light.png" alt="Dare Ministries" width="523" height="170"><span class="logo-fresh"><svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="27" cy="13" r="5" class="brand-sun"/><path d="M2 34 L15 12 L21 22 L25 16 L38 34 Z" fill="currentColor"/></svg><span class="brand-word">DARE<span>Ministries</span></span></span></a>
           <p>Preparing young Saints for a lifetime of ministry and uniting the body of Christ. Colorado Springs, since 2015.</p>
           <ul class="socials">
             <li><a href="https://www.instagram.com/dareministries/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a></li>
@@ -344,13 +342,16 @@
         </div>
       </div>
 
-      <div class="footer-wordmark" aria-hidden="true">DARE</div>
-
       <div class="footer-bottom">
         <p>&copy; <span data-year>2026</span> Dare Ministries. A 501(c)(3) nonprofit. Gifts are tax-deductible as allowed by law.</p>
         <p><a href="../../privacy/">Privacy</a> · <a href="../../give/">Give</a> · <a href="../../connect/">Contact</a></p>
       </div>
     </div>
   </footer>
+  <div class="brand-switch" role="group" aria-label="Preview logo">
+    <span>Logo</span>
+    <button type="button" data-brand-set="classic">Current</button>
+    <button type="button" data-brand-set="fresh">Refreshed</button>
+  </div>
 </body>
 </html>

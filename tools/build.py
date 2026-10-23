@@ -40,7 +40,7 @@ def build_page(src_file, layout):
     title = meta["title"]
     full_title = "Dare Ministries" if meta.get("nav") == "home" else f"{title} · Dare Ministries"
 
-    html = layout.replace("{{body}}", body)
+    html = body.lstrip() if meta.get("standalone") else layout.replace("{{body}}", body)
     html = html.replace("{{title}}", full_title)
     html = html.replace("{{description}}", meta.get("description", ""))
     html = html.replace("{{page_class}}", meta.get("class", ""))
