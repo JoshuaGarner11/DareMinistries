@@ -754,3 +754,29 @@ img.is-broken { opacity: 0 !important; }
 .brand-switch button[aria-pressed="true"] { background: var(--ember); opacity: 1; }
 body.menu-open .brand-switch { display: none; }
 .in-frame .brand-switch { display: none; }
+
+/* Podcast: platforms, episode library, Habakkuk steps */
+.listen-on { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 0; padding: 0; }
+.listen-on li { list-style: none; }
+.listen-on a { display: inline-flex; gap: 6px; align-items: center; padding: 8px 14px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--line); font-weight: 600; font-size: 14px; text-decoration: none; transition: box-shadow .2s; }
+.listen-on a:hover { box-shadow: inset 0 0 0 1.5px var(--ink); }
+.small-note { margin-top: 14px; font-size: 14px; color: var(--muted); }
+.small-note a { color: inherit; }
+.ep-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px 18px; }
+.ep { display: block; text-decoration: none; color: inherit; }
+.ep[hidden] { display: none; }
+.ep-thumb { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: var(--ink); margin-bottom: 12px; }
+.ep-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.ep:hover .ep-thumb img { transform: scale(1.05); }
+.ep-play { position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%; background: var(--ember); display: grid; place-items: center; }
+.ep-play svg { width: 14px; height: 14px; margin-left: 2px; fill: var(--white); }
+.ep-meta { display: block; font-size: 12.5px; font-weight: 600; color: var(--muted); margin-bottom: 4px; }
+.ep b { display: block; font-size: 16px; line-height: 1.3; }
+.on-dark .ep-meta { color: var(--muted-light); }
+.hab-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0; counter-reset: none; }
+.hab-steps li { list-style: none; padding: 28px; border-radius: var(--radius); background: var(--white); box-shadow: inset 0 0 0 1px var(--line); }
+.hab-steps li > b { display: block; font-family: "Instrument Serif", serif; font-weight: 400; font-size: 40px; color: var(--ember); line-height: 1; margin-bottom: 14px; }
+.hab-steps h3 { font-size: 21px; margin-bottom: 8px; }
+.hab-steps p { color: var(--muted); font-size: 15.5px; }
+@media (max-width: 960px) { .ep-grid { grid-template-columns: repeat(2, 1fr); } .hab-steps { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { .ep-grid { grid-template-columns: 1fr; } }
