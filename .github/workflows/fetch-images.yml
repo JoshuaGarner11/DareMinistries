@@ -1,0 +1,40 @@
+name: Copy photos and logos from the old site
+
+# Downloads every image listed in tools/remote-images.txt into assets/img/old-site/
+# and commits them, so the new site doesn't depend on the old WordPress install.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [tools/remote-images.txt]
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download images
+        run: |
+          mkdir -p assets/img/old-site
+          while read -r url; do
+            [ -z "$url" ] && continue
+            path="${url#*wp-content/uploads/}"
+            name="$(echo "$path" | tr '/' '-')"
+            dest="assets/img/old-site/$name"
+            if curl -fsSL -A "Mozilla/5.0" "${url}?w=1600" -o "$dest" \
+               || curl -fsSL -A "Mozilla/5.0" "https://www.dareministries.com/wp-content/uploads/$path" -o "$dest"; then
+              echo "ok   $name ($(stat -c %s "$dest") bytes)"
+            else
+              echo "FAIL $url"; rm -f "$dest"
+            fi
+          done < tools/remote-images.txt
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add assets/img/old-site
+          git diff --cached --quiet || git commit -m "Copy photos and logos from the old site"
+          git push
